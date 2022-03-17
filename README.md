@@ -2,6 +2,12 @@
 
 ### A Simple Email Dispatcher based on top of win32Api
 
+## Installation
+
+```
+pip install pyoutlookdispatcher
+```
+
 ## Examples of Usage: 
 
 ### Send Email with Attachments
