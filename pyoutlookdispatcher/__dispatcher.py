@@ -11,6 +11,7 @@ class Mail:
     HTMLBody: str
     CC: Optional[str] = None
     Attachments: Optional[List[str]] = field(default_factory=list)
+    Signature: Optional[bool] = True
 
 class Outlook:
         
@@ -24,6 +25,7 @@ class Outlook:
             self._mail.Send() 
             return True
         except Exception as e:
+            print(e, 'erro send')
             return False
 
     def preview(self, mail: Mail):
@@ -39,19 +41,19 @@ class Outlook:
     def _add_copies(self, mail: Mail):
         self._mail.CC = mail.CC
 
+    def _add_signature(self):
+        self._mail.GetInspector.Activate()
+        
     def _create_new_mail(self, mail: Mail):
         self._mail = self._outlook.CreateItem(0)
         self._mail.Subject = mail.Subject
         self._mail.To = mail.To
-        self._mail.HTMLBody = mail.HTMLBody
         if mail.CC:
             self._add_copies(mail)
+        if mail.Signature:
+            self._add_signature()
+        self._mail.HTMLBody = self._mail.HTMLBody + mail.HTMLBody
         if mail.Attachments:
             self._add_attachments(mail)
         
         
-      
-        
-
-
-   
