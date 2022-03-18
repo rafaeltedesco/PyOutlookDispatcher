@@ -1,4 +1,4 @@
 .pytest_cache
-__pytcache__
+__pycache__
 dist
 pyproject.toml
