@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "PyOutlookDispatcher"
-version = "0.2.0"
+version = "0.2.1"
 description = "A Simple Email Dispatcher based on top of win32Api"
 authors = ["Rafael Tedesco <dev.rafaeltedesco@gmail.com>"]
 readme = "README.md"

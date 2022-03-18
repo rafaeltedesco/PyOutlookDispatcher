@@ -52,7 +52,7 @@ class Outlook:
             self._add_copies(mail)
         if mail.Signature:
             self._add_signature()
-        self._mail.HTMLBody = self._mail.HTMLBody + mail.HTMLBody
+        self._mail.HTMLBody = mail.HTMLBody + self._mail.HTMLBody
         if mail.Attachments:
             self._add_attachments(mail)
         
